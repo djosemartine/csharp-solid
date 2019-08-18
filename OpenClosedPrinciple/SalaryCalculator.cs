@@ -18,7 +18,19 @@ namespace OpenClosedPrinciple
             double totalSalaries = 0;
             foreach (var report in _developerReports)
             {
-                totalSalaries += report.WorkingHours * report.HourlyRate;
+                if (report.Level == DeveloperLevel.Senior)
+                {
+                    totalSalaries += report.WorkingHours * report.HourlyRate * 1.2;
+                }
+                else if (report.Level == DeveloperLevel.Junior)
+                {
+                    totalSalaries += report.WorkingHours * report.HourlyRate * 1;
+                }
+                else
+                {
+                    throw new NotImplementedException($"Developer Type {report.Level.ToString()} Not Found");
+                }
+
             }
             return totalSalaries;
         }

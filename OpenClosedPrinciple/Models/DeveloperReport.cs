@@ -6,7 +6,7 @@ namespace OpenClosedPrinciple.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Level { get; set; }
+        public DeveloperLevel Level { get; set; }
         public int WorkingHours { get; set; }
         public double HourlyRate { get; set; }
     }
