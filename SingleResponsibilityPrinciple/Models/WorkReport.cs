@@ -27,14 +27,5 @@ namespace SingleResponsibilityPrinciple.Models
         {
             return string.Join(Environment.NewLine, _entries.Select(x => $"Code: {x.ProjectCode}, Name: {x.Name}"));
         }
-
-        public void SaveToFile(string directoryPath, string fileName)
-        {
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
-            File.WriteAllText(Path.Combine(directoryPath, fileName), ToString());
-        }
     }
 }
