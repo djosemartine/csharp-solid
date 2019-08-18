@@ -1,11 +1,11 @@
-﻿using System;
+﻿using SingleResponsibilityPrinciple.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace SingleResponsibilityPrinciple.Models
 {
-    public class WorkReport
+    public class WorkReport : IEntryManager<WorkReportEntry>
     {
         private readonly List<WorkReportEntry> _entries;
         public WorkReport()

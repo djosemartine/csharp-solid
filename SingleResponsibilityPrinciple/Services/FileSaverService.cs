@@ -1,11 +1,11 @@
-﻿using SingleResponsibilityPrinciple.Models;
+﻿using SingleResponsibilityPrinciple.Interfaces;
 using System.IO;
 
 namespace SingleResponsibilityPrinciple.Services
 {
     public class FileSaverService : IFileSaverService
     {
-        public void SaveToFile(string directoryPath, string fileName, WorkReport report)
+        public void SaveToFile<T>(string directoryPath, string fileName, IEntryManager<T> report)
         {
             if (!Directory.Exists(directoryPath))
             {

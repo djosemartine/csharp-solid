@@ -1,9 +1,9 @@
-﻿using SingleResponsibilityPrinciple.Models;
+﻿using SingleResponsibilityPrinciple.Interfaces;
 
 namespace SingleResponsibilityPrinciple.Services
 {
     public interface IFileSaverService
     {
-        void SaveToFile(string directoryPath, string fileName, WorkReport report);
+        void SaveToFile<T>(string directoryPath, string fileName, IEntryManager<T> report);
     }
 }
