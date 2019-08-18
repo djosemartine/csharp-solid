@@ -24,7 +24,7 @@ namespace OpenClosedPrinciple
                 }
                 else if (report.Level == DeveloperLevel.Junior)
                 {
-                    totalSalaries += report.WorkingHours * report.HourlyRate * 1;
+                    totalSalaries += report.WorkingHours * report.HourlyRate;
                 }
                 else
                 {
