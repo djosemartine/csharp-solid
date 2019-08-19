@@ -6,9 +6,9 @@ namespace OpenClosedPrinciple
 {
     public class SalaryCalculator
     {
-        private readonly IEnumerable<DeveloperReport> _developerReports;
+        private readonly IEnumerable<BaseSalaryCalculator> _developerReports;
 
-        public SalaryCalculator(IEnumerable<DeveloperReport> developerReports)
+        public SalaryCalculator(IEnumerable<BaseSalaryCalculator> developerReports)
         {
             _developerReports = developerReports ?? throw new ArgumentNullException(nameof(developerReports));
         }
@@ -18,18 +18,7 @@ namespace OpenClosedPrinciple
             double totalSalaries = 0;
             foreach (var report in _developerReports)
             {
-                if (report.Level == DeveloperLevel.Senior)
-                {
-                    totalSalaries += report.WorkingHours * report.HourlyRate * 1.2;
-                }
-                else if (report.Level == DeveloperLevel.Junior)
-                {
-                    totalSalaries += report.WorkingHours * report.HourlyRate;
-                }
-                else
-                {
-                    throw new NotImplementedException($"Developer Type {report.Level.ToString()} Not Found");
-                }
+                totalSalaries += report.CalculateSalary();
 
             }
             return totalSalaries;

@@ -9,11 +9,20 @@ namespace OpenClosedPrinciple
         static void Main(string[] args)
         {
             Console.WriteLine("Open Closed Principles");
-            var devReports = new List<DeveloperReport>
+            var devReports = new List<BaseSalaryCalculator>
             {
-                new DeveloperReport {Id = Guid.NewGuid(), Name = "Dev1", Level = DeveloperLevel.Senior, HourlyRate  = 30.5, WorkingHours = 160 },
-                new DeveloperReport {Id = Guid.NewGuid(), Name = "Dev2", Level = DeveloperLevel.Junior, HourlyRate  = 20, WorkingHours = 150 },
-                new DeveloperReport {Id = Guid.NewGuid(), Name = "Dev3", Level = DeveloperLevel.Senior, HourlyRate  = 30.5, WorkingHours = 180 }
+                new SeniorSalaryCalculator(
+                    new DeveloperReport {
+                        Id = Guid.NewGuid(), Name = "Dev1", Level = DeveloperLevel.Senior, HourlyRate  = 30.5, WorkingHours = 160
+                    }),
+                new JuniorSalaryCalculator(
+                    new DeveloperReport {
+                        Id = Guid.NewGuid(), Name = "Dev2", Level = DeveloperLevel.Junior, HourlyRate  = 20, WorkingHours = 150
+                    }),
+                new SeniorSalaryCalculator(
+                    new DeveloperReport {
+                        Id = Guid.NewGuid(), Name = "Dev3", Level = DeveloperLevel.Senior, HourlyRate  = 30.5, WorkingHours = 180
+                    })
             };
 
             var calculator = new SalaryCalculator(devReports);
