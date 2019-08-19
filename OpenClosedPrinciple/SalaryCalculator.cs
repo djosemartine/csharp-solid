@@ -1,5 +1,4 @@
-﻿using OpenClosedPrinciple.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace OpenClosedPrinciple
