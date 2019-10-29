@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OpenClosedPrinciple
 {
@@ -14,13 +15,7 @@ namespace OpenClosedPrinciple
 
         public double CalculateTotalSalaries()
         {
-            double totalSalaries = 0;
-            foreach (var report in _developerReports)
-            {
-                totalSalaries += report.CalculateSalary();
-
-            }
-            return totalSalaries;
+            return _developerReports.Sum(report => report.CalculateSalary());
         }
     }
 }

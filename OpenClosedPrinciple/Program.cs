@@ -8,7 +8,7 @@ namespace OpenClosedPrinciple
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Open Closed Principles");
+            Console.WriteLine("Open Closed Principle");
             var devReports = new List<BaseSalaryCalculator>
             {
                 new SeniorSalaryCalculator(
