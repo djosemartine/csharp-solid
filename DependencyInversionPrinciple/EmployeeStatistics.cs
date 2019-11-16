@@ -1,20 +1,25 @@
-﻿using System;
+﻿using DependencyInversionPrinciple.Models;
+using System;
 using System.Linq;
 
 namespace DependencyInversionPrinciple
 {
     public class EmployeeStatistics
     {
-        private readonly EmployeeManager _employeeManager;
+        private readonly IEmployeeSearcher _employeeSearcher;
 
-        public EmployeeStatistics(EmployeeManager employeeManager)
+        public EmployeeStatistics(IEmployeeSearcher employeeSearcher)
         {
-            _employeeManager = employeeManager ?? throw new ArgumentNullException(nameof(employeeManager));
+            _employeeSearcher = employeeSearcher ?? throw new ArgumentNullException(nameof(employeeSearcher));
         }
 
         public int CountFemaleDevelopers()
         {
-            return _employeeManager.Employees.Count(e => e.Gender == Gender.Female && e.Position == Position.Developer);
+            return _employeeSearcher.Search(new SearchEmployee
+            {
+                Position = Position.Developer,
+                Gender = Gender.Female
+            }).Count();
         }
     }
 }
