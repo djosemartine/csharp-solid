@@ -2,13 +2,8 @@
 
 namespace InterfaceSegregationPrinciple
 {
-    public class Airplane : IVehicle
+    public class Airplane : IAirplane
     {
-        public void Drive()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Fly()
         {
             Console.WriteLine("Flying the airplane");
